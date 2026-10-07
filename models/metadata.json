@@ -1,0 +1,60 @@
+{
+  "name": "AI Answer Staleness Flagger",
+  "model_kind": "word_logistic",
+  "algorithm": "TF-IDF + Logistic Regression",
+  "labels": {
+    "0": "STABLE",
+    "1": "TIME-SENSITIVE"
+  },
+  "language": "English",
+  "threshold": 0.5,
+  "feature_count": 17384,
+  "training_rows": 3159,
+  "train_seconds": 0.0994,
+  "batch_20_ms": 0.724,
+  "statement_test": {
+    "n": 100,
+    "accuracy": 0.84,
+    "macro_f1": 0.8399359743897559,
+    "volatile_f1": 0.8367346938775511,
+    "volatile_precision": 0.8541666666666666,
+    "volatile_recall": 0.82,
+    "confusion_matrix": [
+      [
+        43,
+        7
+      ],
+      [
+        9,
+        41
+      ]
+    ]
+  },
+  "question_test": {
+    "n": 1270,
+    "accuracy": 0.8598425196850393,
+    "macro_f1": 0.8181680710661532,
+    "volatile_f1": 0.7311178247734139,
+    "volatile_precision": 0.7138643067846607,
+    "volatile_recall": 0.7492260061919505,
+    "confusion_matrix": [
+      [
+        850,
+        97
+      ],
+      [
+        81,
+        242
+      ]
+    ]
+  },
+  "annotation_note": "Project-authored statements were labeled by the coding assistant with the rubric. They are not independent human annotations. Short public answers inherit weak question labels.",
+  "probability_note": "Scores are classifier estimates, not calibrated probabilities of correctness or actual staleness.",
+  "trained_at": "2026-10-07T16:12:45.170582+00:00",
+  "sklearn_version": "1.8.0",
+  "python_version": "3.13.2",
+  "data_sha256": "d685268378df9942dd757d9ee083b2802aed9c54275813041185f638923c36f2",
+  "offline_inference": true,
+  "fine_tuning": false,
+  "artifact_bytes": 259009
+}

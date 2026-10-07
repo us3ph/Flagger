@@ -1,0 +1,101 @@
+label	group	text
+0	chemistry_test	Carbon dioxide contains carbon and oxygen.
+0	chemistry_test	The symbol Na represents sodium.
+0	chemistry_test	Hydrogen has atomic number one.
+0	biology_test	Mitochondria participate in cellular respiration.
+0	biology_test	A mammal is a vertebrate animal.
+0	biology_test	Plants need energy for growth.
+0	physics_test	Sound is a mechanical wave.
+0	physics_test	Energy is conserved in an isolated system.
+0	physics_test	A volt is a unit of electric potential difference.
+0	math_test	A square has four equal sides.
+0	math_test	Ten multiplied by ten equals one hundred.
+0	math_test	An even integer is divisible by two.
+0	language_test	A verb can describe an action.
+0	language_test	The word bilingual refers to using two languages.
+0	language_test	A synonym is a word with a similar meaning.
+0	units_test	There are sixty seconds in a minute.
+0	units_test	A centimetre is one hundredth of a metre.
+0	units_test	The kilogram is a unit of mass.
+0	computing_test	An algorithm is a sequence of steps for solving a problem.
+0	computing_test	A stack follows the last-in first-out principle.
+0	computing_test	A compiler translates source code.
+0	computing_test	A binary digit can have the value zero or one.
+0	history_test	The Berlin Wall fell in 1989.
+0	history_test	Marie Curie was born in 1867.
+0	history_test	Ada Lovelace wrote about Charles Babbage's analytical engine.
+0	history_test	The Titanic sank in 1912.
+0	literature_test	Jane Austen wrote Pride and Prejudice.
+0	literature_test	George Orwell wrote the novel Nineteen Eighty-Four.
+0	literature_test	Mary Shelley wrote Frankenstein.
+0	software_history_test	Windows 95 was released in 1995.
+0	software_history_test	The initial release of Rust took place in 2010.
+0	software_history_test	The first public release of this app occurred in 2017.
+0	anchored_price_test	In 2018, the annual membership fee was 60 pounds.
+0	anchored_price_test	The stock closed at 42 dollars on 3 January 2000.
+0	anchored_price_test	In 2013, a one-way ticket cost five euros.
+0	anchored_roles_test	The company's CEO in 1999 was Robert Lee.
+0	anchored_roles_test	The mayor served from 1988 to 1992.
+0	anchored_roles_test	Alice was elected president in 2004.
+0	definition_test	A deadline is a time by which something must be completed.
+0	definition_test	A fare is a payment for transportation.
+0	definition_test	A subscription is an arrangement for regular access to a service.
+0	definition_test	A chief financial officer oversees an organization's finances.
+0	false_friend_test	Current is measured with an ammeter.
+0	false_friend_test	Ocean currents move water across the seas.
+0	false_friend_test	A release date identifies when a product first appeared.
+0	false_fact_test	Every square has five sides.
+0	false_fact_test	Seven plus three equals eleven.
+0	geography_test	The Sahara is a desert in Africa.
+0	geography_test	The Pacific is an ocean.
+0	geography_test	A peninsula is surrounded by water on most sides.
+1	price_test	The laptop sells for 849 euros.
+1	price_test	A cup of coffee at this cafe costs four pounds.
+1	price_test	The price of diesel is 1.75 euros per litre.
+1	price_test	A monthly gym membership is 35 pounds.
+1	price_test	The entrance ticket costs 18 euros.
+1	crypto_test	Ethereum is trading at 3200 dollars.
+1	crypto_test	The exchange rate is 150 yen per US dollar.
+1	crypto_test	Silver is selling for 30 dollars an ounce.
+1	software_test	The most recent Ubuntu release is version 25.04.
+1	software_test	The latest version of Node.js is 24.
+1	software_test	This package is actively maintained.
+1	software_test	The current Android release supports this feature.
+1	software_test	The service's free tier allows 1000 API calls a day.
+1	software_test	The application is compatible with the newest operating system.
+1	roles_test	The organization's director is Sarah Wilson.
+1	roles_test	Robert Lee serves as the finance minister.
+1	roles_test	The current head coach is David Jones.
+1	roles_test	Nora is the university's vice-chancellor.
+1	roles_test	The mayor of the city is David Miller.
+1	policy_test	Tourists must apply online before entering the country.
+1	policy_test	The consulate charges 80 euros for a visa.
+1	policy_test	The visa application requires a bank statement.
+1	policy_test	Residents must renew the permit every three years.
+1	policy_test	The import duty on this product is 12 percent.
+1	policy_test	The minimum legal wage is 11 pounds per hour.
+1	schedule_test	The last tram departs at 11:45 p.m.
+1	schedule_test	The public library closes at seven in the evening.
+1	schedule_test	The concert is scheduled for next Friday.
+1	schedule_test	Admissions close on January 15.
+1	schedule_test	The next international summit will take place in Rome.
+1	schedule_test	The clinic accepts walk-in patients on Tuesdays.
+1	availability_test	The new laptop is available for delivery.
+1	availability_test	The pharmacy has this medication in stock.
+1	availability_test	The ferry route is suspended.
+1	availability_test	The campsite is open to the public.
+1	sport_test	The club occupies first place in the standings.
+1	sport_test	The reigning chess world champion is Gukesh.
+1	sport_test	The striker plays for Manchester City.
+1	sport_test	The player holds the national scoring record.
+1	statistics_test	The unemployment rate is 5.2 percent.
+1	statistics_test	The town has 24000 inhabitants.
+1	statistics_test	The company employs 700 people.
+1	statistics_test	The channel has two million subscribers.
+1	statistics_test	The university ranks tenth in the national league table.
+1	statistics_test	The highest-grossing movie is Avatar.
+1	status_test	The airport is experiencing significant delays today.
+1	status_test	The wildfire alert is at its highest level.
+1	status_test	The roads are closed following heavy snowfall.
+1	status_test	The government recommends wearing masks on public transport.
+1	status_test	The next spacecraft launch is planned for October.

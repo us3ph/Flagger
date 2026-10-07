@@ -1,0 +1,109 @@
+{
+  "seed": 42,
+  "upstream_hf_dataset": "s-nlp/EverGreen-Multilingual",
+  "hf_revision": "0a114a0126272e991a368dddcbe3092bd72dbd16",
+  "github_revision": "88f9759fbf66abfd45c454fe4d9d2db20cd6a5da",
+  "downloads": [
+    {
+      "split": "train",
+      "url": "https://raw.githubusercontent.com/s-nlp/Evergreen/88f9759fbf66abfd45c454fe4d9d2db20cd6a5da/datasets/train.csv",
+      "sha256": "55862ab5f2e5ec2f5f4f013627b4fa2330d8eb474b117e4e23cd0983388d8ce9",
+      "rows": 2008
+    },
+    {
+      "split": "train_synth",
+      "url": "https://raw.githubusercontent.com/s-nlp/Evergreen/88f9759fbf66abfd45c454fe4d9d2db20cd6a5da/datasets/train_synth.csv",
+      "sha256": "1c72e447a90072aab80459d1563095dd11210b2f4325b61bf35cb9fa2da3efcc",
+      "rows": 1479
+    },
+    {
+      "split": "test",
+      "url": "https://raw.githubusercontent.com/s-nlp/Evergreen/88f9759fbf66abfd45c454fe4d9d2db20cd6a5da/datasets/test.csv",
+      "sha256": "8bc8640cbbbfaa6fe19f4b12f58c487e77cd739d4d666bb966ef576d6a0df6aa",
+      "rows": 1270
+    }
+  ],
+  "mapping": {
+    "upstream_is_evergreen_1": 0,
+    "upstream_is_evergreen_0": 1
+  },
+  "conflicting_training_texts_removed": 0,
+  "audit": [
+    {
+      "splits": [
+        "train",
+        "validation"
+      ],
+      "exact_text_overlap": 0,
+      "group_overlap": 0
+    },
+    {
+      "splits": [
+        "train",
+        "test_questions"
+      ],
+      "exact_text_overlap": 0,
+      "group_overlap": 0
+    },
+    {
+      "splits": [
+        "train",
+        "test_statements"
+      ],
+      "exact_text_overlap": 0,
+      "group_overlap": 0
+    },
+    {
+      "splits": [
+        "validation",
+        "test_questions"
+      ],
+      "exact_text_overlap": 0,
+      "group_overlap": 0
+    },
+    {
+      "splits": [
+        "validation",
+        "test_statements"
+      ],
+      "exact_text_overlap": 0,
+      "group_overlap": 0
+    },
+    {
+      "splits": [
+        "test_questions",
+        "test_statements"
+      ],
+      "exact_text_overlap": 0,
+      "group_overlap": 0
+    }
+  ],
+  "split_counts": {
+    "train": {
+      "total": 3159,
+      "stable": 1652,
+      "volatile": 1507,
+      "curated_statements": 206
+    },
+    "validation": {
+      "total": 785,
+      "stable": 426,
+      "volatile": 359,
+      "curated_statements": 54
+    },
+    "test_questions": {
+      "total": 1270,
+      "stable": 947,
+      "volatile": 323,
+      "curated_statements": 0
+    },
+    "test_statements": {
+      "total": 100,
+      "stable": 50,
+      "volatile": 50,
+      "curated_statements": 100
+    }
+  },
+  "dataset_license": "No explicit dataset license found in the Hugging Face card; raw upstream files stay in gitignored data/raw.",
+  "annotation_note": "Project-authored statements were labeled by the coding assistant with the rubric. They are not independent human annotations. Short public answers inherit weak question labels."
+}

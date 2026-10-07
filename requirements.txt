@@ -1,0 +1,9 @@
+# Runtime + training. No torch, transformers, LLM, GPU, or remote inference.
+scikit-learn>=1.5,<1.9
+numpy>=1.26,<3
+joblib>=1.3,<2
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+# Verification
+pytest>=8,<10
+httpx>=0.27,<1
