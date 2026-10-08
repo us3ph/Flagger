@@ -3,62 +3,65 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Highlight sentences whose information can change over time, using a small offline text classifier.">
-  <title>AI Answer Staleness Flagger</title>
+  <meta name="description" content="Analyze which sentences in an AI answer may need current verification. Temporal stability, not factual correctness.">
+  <meta name="theme-color" content="#0b0b0b">
+  <title>Flagger — AI answer stability</title>
   <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/static/styles.css">
   <script src="/static/app.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#answer">Skip to input</a>
   <div class="page">
-    <header class="topbar">
-      <a class="brand" href="/" aria-label="Staleness Flagger home">
-        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 19V5m0 0h11l-2.5 4L17 13H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span>Staleness<span class="brand-light"> Flagger</span></span>
+    <header class="masthead">
+      <a class="brand-mark" href="/" aria-label="Flagger home">
+        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M15 10h37L42 22H27v10h20L37 44H27v10H15V10Z" fill="currentColor"/></svg>
       </a>
-      <div class="nav-meta"><span class="project-badge">BSc PROJECT</span><span class="status"><span class="status-dot"></span><span id="connection-status">Loading classifier</span></span></div>
+      <h1><span class="sr-only">FLAGGER</span><svg class="wordmark" viewBox="0 0 404 66" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="6.5" stroke-linejoin="bevel"><path d="M4 59V7h37M4 32h30M60 7v52h35M114 59l20-52h5l20 52M122 41h29"/><path d="M216 17c-6-8-13-12-23-12-13 0-19 10-19 27s9 27 24 27c9 0 16-3 20-8V34h-19M277 17c-6-8-13-12-23-12-13 0-19 10-19 27s9 27 24 27c9 0 16-3 20-8V34h-19"/><path d="M334 7h-34v52h34M300 32h28M354 59V7h19c15 0 21 6 21 15s-8 15-21 15h-19M373 37l24 22"/></g></svg></h1>
+      <p class="subtitle">AI ANSWER STABILITY ANALYSIS</p>
     </header>
 
-    <main>
-      <section class="intro" aria-labelledby="page-title">
-        <div class="eyebrow"><span class="eyebrow-line"></span> AI ANSWER STALENESS FLAGGER</div>
-        <h1 id="page-title">Some answers age.<br><span>Spot the parts that change.</span></h1>
-        <p class="intro-copy">Paste an AI answer. A small text classifier highlights sentences<br class="desktop-break"> with information that could change over time.</p>
-        <div class="scope-note"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7.1" stroke="currentColor" stroke-width="1.4"/><path d="M10 9v4m0-7v.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Predicts temporal volatility. Labels do not tell you whether a claim is true.</span></div>
-        <div class="intro-decoration" aria-hidden="true"><span class="deco-label">TIME →</span><div class="timeline"><div class="timeline-stable"></div><div class="timeline-volatile"></div><i></i><i></i><i></i><i></i></div><span class="deco-caption">Same answer. Different shelf lives.</span></div>
-      </section>
+    <main id="workspace">
+      <form class="composer" id="analysis-form" aria-label="Analyze an AI answer">
+        <span class="status" id="model-status" data-state="loading" role="status"><span class="status-dot" aria-hidden="true"></span><span class="sr-only" id="connection-status">Loading classifier</span></span>
+        <label class="sr-only" for="answer">Your AI answer</label>
+        <textarea id="answer" maxlength="25000" spellcheck="false" aria-describedby="input-footer input-error" placeholder="Paste an AI answer here…"></textarea>
+        <div class="composer-toolbar">
+          <span class="word-count" id="input-footer"><span id="word-count">0</span> <span id="word-label">words</span><span class="sr-only">; <span id="character-count">0</span> of 25,000 characters; up to 150 sentences</span></span>
+          <button class="secondary-button" id="clear-button" type="button">Clear</button>
+          <button class="analyze-button" id="analyze-button" type="submit"><span id="analyze-label">Analyze</span></button>
+        </div>
+        <p id="input-error" class="error" role="alert" hidden></p>
+      </form>
+      <div class="composer-note"><span>Local analysis. Your text is not saved.</span><span class="shortcut"><kbd id="shortcut-modifier">Ctrl</kbd> + <kbd>Enter</kbd></span></div>
 
-      <section class="workspace" aria-label="Answer analysis workspace">
-        <section class="input-panel panel" aria-labelledby="input-title">
-          <div class="panel-heading"><div><span class="step">01</span><h2 id="input-title">Your AI answer</h2></div><button class="text-button" id="clear-button" type="button">Clear</button></div>
-          <label class="sr-only" for="answer">Paste an AI-generated answer in English</label>
-          <textarea id="answer" maxlength="25000" spellcheck="false" placeholder="Paste an AI-generated answer here…">Python is a programming language. Python was created by Guido van Rossum. The latest Python version is 3.13. The current price is €50. The visa fee is €50.</textarea>
-          <div class="input-footer"><span><span id="character-count">0</span> / 25,000 characters</span><span>English · sentence-level</span></div>
-          <div class="examples"><span>Try an example</span><div class="example-buttons"><button type="button" data-example="software">Software</button><button type="button" data-example="travel">Travel & fees</button><button type="button" data-example="mixed">Mixed facts</button></div></div>
-          <div class="input-actions"><button class="analyze-button" id="analyze-button" type="button"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m11.5 2-7 9h5L8.5 18l7-9h-5l1-7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span>Analyze answer</span><span class="button-arrow" aria-hidden="true">↗</span></button><span class="shortcut"><kbd>Ctrl</kbd> + <kbd>Enter</kbd></span></div>
-          <p id="input-error" class="error" role="alert" hidden></p>
-        </section>
-
-        <section class="results-panel panel" aria-labelledby="results-title" aria-busy="false">
-          <div class="panel-heading"><div><span class="step">02</span><h2 id="results-title">Volatility highlights</h2></div><span class="result-count" id="result-count">Awaiting analysis</span></div>
-          <div class="legend"><span><i class="legend-dot stable-dot"></i><strong>0</strong> Stable</span><span><i class="legend-dot volatile-dot"></i><strong>1</strong> Time-sensitive</span></div>
-          <div id="empty-state" class="empty-state"><div class="empty-art" aria-hidden="true"><span></span><span></span><span></span><span></span><i class="empty-tag">0 / 1</i></div><h3>Your answer, in focus.</h3><p>Analyze an answer to see which sentences<br>are stable and which could change.</p></div>
-          <div id="result-content" hidden>
-            <div class="result-summary"><div class="summary-item"><span class="summary-number" id="stable-count">0</span><span><i class="legend-dot stable-dot"></i>Stable sentences</span></div><div class="summary-item"><span class="summary-number" id="volatile-count">0</span><span><i class="legend-dot volatile-dot"></i>Time-sensitive sentences</span></div></div>
-            <div class="result-tabs" role="tablist" aria-label="Result view"><button id="highlight-tab" class="active" role="tab" aria-selected="true" aria-controls="highlight-view" type="button">Highlighted answer</button><button id="sentence-tab" role="tab" aria-selected="false" aria-controls="sentence-view" type="button">Sentence details</button></div>
-            <div id="highlight-view" class="highlight-view" role="tabpanel" aria-labelledby="highlight-tab"></div>
-            <div id="sentence-view" class="sentence-view" role="tabpanel" aria-labelledby="sentence-tab" hidden></div>
-            <div class="result-actions"><span id="inference-time"></span><div><button class="text-button" id="copy-button" type="button">Copy labels</button><button class="text-button" id="export-button" type="button">Export JSON <span aria-hidden="true">↓</span></button></div></div>
+      <section class="results-panel" aria-labelledby="results-title" aria-busy="false" hidden>
+        <div class="results-heading"><h2 id="results-title">Stability summary</h2><span id="result-count">Awaiting analysis</span></div>
+        <div id="empty-state"><h3 id="empty-title">Ready to analyze.</h3><p id="empty-copy">Find the claims that may need current verification.</p></div>
+        <div id="result-content" hidden>
+          <div class="result-summary" aria-label="Claim counts">
+            <span class="summary-item"><strong id="stable-count">0</strong> <span id="stable-label">stable claims</span></span>
+            <span class="summary-item"><strong id="volatile-count">0</strong> <span id="volatile-label">time-sensitive claims</span></span>
           </div>
-          <div class="result-note"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3v5l3 2m4-2a7 7 0 1 1-2-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span>Time-sensitive means the <em>kind of information</em> can change.<br>It does not mean this answer is already outdated.</span></div>
-        </section>
+          <p class="verification-notice" id="verification-notice"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m9.1 3.4-7 12.1A1 1 0 0 0 3 17h14a1 1 0 0 0 .9-1.5L10.9 3.4a1 1 0 0 0-1.8 0Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M10 7v4m0 3v.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span id="verification-message"></span></p>
+          <p class="summary-scope">Counts only indicate what may need checking. They do not rate truth, accuracy, reliability, or trustworthiness.</p>
+          <div class="result-tabs" role="tablist" aria-label="Result view"><button id="highlight-tab" class="active" role="tab" aria-selected="true" aria-controls="highlight-view" type="button">Highlighted answer</button><button id="sentence-tab" role="tab" aria-selected="false" aria-controls="sentence-view" tabindex="-1" type="button">Sentence details</button></div>
+          <div id="highlight-view" class="highlight-view" role="tabpanel" aria-labelledby="highlight-tab" tabindex="0"></div>
+          <div id="sentence-view" class="sentence-view" role="tabpanel" aria-labelledby="sentence-tab" tabindex="0" hidden></div>
+          <div class="result-actions"><span id="inference-time"></span><div><button class="text-button" id="copy-button" type="button">Copy labels</button><button class="text-button" id="export-button" type="button">Export JSON</button></div></div>
+        </div>
+        <p class="result-note">0 = stable · 1 = time-sensitive. Each label applies to a sentence, which may contain several claims. Stable claims can still be false.</p>
       </section>
 
-      <section class="method-strip" aria-label="How the classifier works"><div><span class="method-number">01</span><h3>Split into sentences</h3><p>Keep versions, prices and dates intact.</p></div><span class="method-arrow" aria-hidden="true">→</span><div><span class="method-number">02</span><h3>Extract text features</h3><p>Lightweight TF-IDF representation.</p></div><span class="method-arrow" aria-hidden="true">→</span><div><span class="method-number">03</span><h3>Predict 0 or 1</h3><p>Learned classification, on your CPU.</p></div><span class="offline-badge"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="4" y="6" width="12" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M7 6V4a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.4"/></svg>No web search<br><strong>No LLM fine-tuning</strong></span></section>
-
-      <details class="model-details"><summary>About the model & evaluation <span aria-hidden="true">+</span></summary><div class="model-detail-content"><div><h3>A small, supervised classifier</h3><p id="model-description">TF-IDF features with a local scikit-learn classifier. No large language model or remote inference.</p><p>EverGreenQA provides auxiliary question labels. Project-authored statements bridge the gap to AI answers. The statement set needs independent human review before making research claims about general performance.</p><a href="https://huggingface.co/datasets/s-nlp/EverGreen-Multilingual" target="_blank" rel="noreferrer">View source dataset ↗</a></div><div><h3>Decision threshold</h3><p>Lower values flag more sentences. The score estimates temporal volatility; it is not a probability of correctness.</p><label class="threshold-label" for="threshold"><span>Flag when volatility score reaches</span><output id="threshold-value" for="threshold">0.50</output></label><input id="threshold" type="range" min="0.1" max="0.9" step="0.05" value="0.5"><p class="small-note">Changes apply when you analyze again. A sentence may contain several claims; this baseline predicts one label for the whole sentence.</p></div></div></details>
+      <details class="model-details">
+        <summary>Model & settings <span class="details-plus" aria-hidden="true">+</span></summary>
+        <div class="model-detail-content">
+          <div><h2>Local classifier</h2><p id="model-description">Loading the model description…</p><p>Project-authored statement labels need independent human review. Unfamiliar wording can still be misclassified.</p></div>
+          <div><h2>Decision threshold</h2><p>Lower values flag more sentences. The score estimates temporal volatility, not correctness.</p><label class="threshold-label" for="threshold"><span>Flag when the score reaches</span><output id="threshold-value" for="threshold">0.50</output></label><input id="threshold" type="range" min="0.1" max="0.9" step="0.05" value="0.5"><p>Analyze again after changing the threshold.</p></div>
+        </div>
+      </details>
     </main>
-    <footer><span>AI Answer Staleness Flagger <span class="footer-divider">/</span> BSc text classification project</span><span>Small model. Clear signals.</span></footer>
+    <footer>Temporal stability, not factual correctness.</footer>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
   <div class="sr-only" id="announcement" aria-live="polite"></div>

@@ -1,11 +1,6 @@
 "use strict";
 
 const $ = (id) => document.getElementById(id);
-const examples = {
-  software: "Python is a programming language. Python was created by Guido van Rossum. The latest Python version is 3.13. Python 3.0 was released in 2008.",
-  travel: "A visa is an authorization to enter a country. The visa fee is €50. Visitors need a visa to enter the country. The visa fee was €50 in 2010.",
-  mixed: "The Earth orbits the Sun. Python was created by Guido van Rossum. The current CEO is John Smith. The current price is €50. A triangle has three sides.",
-};
 let currentResult = null;
 let analyzedAnswer = "";
 let requestSequence = 0;
@@ -14,6 +9,9 @@ let toastTimer;
 
 function countCharacters() {
   $("character-count").textContent = Array.from($("answer").value).length.toLocaleString();
+  const words = $("answer").value.trim().split(/\s+/).filter(Boolean).length;
+  $("word-count").textContent = words.toLocaleString();
+  $("word-label").textContent = words === 1 ? "word" : "words";
 }
 
 function resetResults() {
@@ -21,10 +19,14 @@ function resetResults() {
   currentResult = null;
   $("empty-state").hidden = false;
   $("result-content").hidden = true;
+  document.querySelector(".results-panel").hidden = true;
   $("result-count").textContent = "Awaiting analysis";
+  $("empty-title").textContent = "A clearer view starts here.";
+  $("empty-copy").textContent = "Analyze your answer to find the claims that may need current verification.";
+  $("announcement").textContent = "";
   $("input-error").hidden = true;
   $("analyze-button").disabled = false;
-  $("analyze-button").querySelector("span").textContent = "Analyze answer";
+  $("analyze-label").textContent = "Analyze";
   document.querySelector(".results-panel").setAttribute("aria-busy", "false");
   busy = false;
 }
@@ -40,13 +42,32 @@ function selectTab(name) {
 }
 
 function renderResults(result, answer) {
+  // Use the displayed predictions as the single source for counts and exports.
+  const claims = result.claims.map((claim) => {
+    if (![0, 1, "0", "1"].includes(claim.label)) {
+      throw new Error("The classifier returned an unsupported label. Please analyze again.");
+    }
+    const label = Number(claim.label);
+    return { ...claim, label, label_name: label === 1 ? "TIME-SENSITIVE" : "STABLE" };
+  });
+  const volatile = claims.filter((claim) => claim.label === 1).length;
+  result = { ...result, claims, summary: { total: claims.length, stable: claims.length - volatile, volatile } };
   currentResult = result;
   analyzedAnswer = answer;
+  document.querySelector(".results-panel").hidden = false;
   $("empty-state").hidden = true;
   $("result-content").hidden = false;
   $("result-count").textContent = `${result.summary.total} sentences`;
   $("stable-count").textContent = result.summary.stable;
   $("volatile-count").textContent = result.summary.volatile;
+  $("stable-label").textContent = result.summary.stable === 1 ? "stable claim" : "stable claims";
+  $("volatile-label").textContent = result.summary.volatile === 1 ? "time-sensitive claim" : "time-sensitive claims";
+  // Counts identify claims to check; they never produce an answer-level verdict.
+  const verificationMessage = result.summary.volatile === 0
+    ? "No time-sensitive claims flagged. Stable claims can still be incorrect."
+    : `${result.summary.volatile} ${result.summary.volatile === 1 ? "claim" : "claims"} may need current verification`;
+  $("verification-message").textContent = verificationMessage;
+  $("verification-notice").dataset.count = result.summary.volatile;
   $("inference-time").textContent = `${result.elapsed_ms} ms · local inference`;
   $("highlight-view").replaceChildren();
   $("sentence-view").replaceChildren();
@@ -80,7 +101,7 @@ function renderResults(result, answer) {
     $("sentence-view").append(row);
   }
   $("highlight-view").append(document.createTextNode(characters.slice(cursor).join("")));
-  $("announcement").textContent = `${result.summary.total} sentences analyzed. ${result.summary.stable} stable and ${result.summary.volatile} time-sensitive.`;
+  $("announcement").textContent = `${result.summary.total} sentences analyzed. ${result.summary.stable} stable and ${result.summary.volatile} time-sensitive. ${verificationMessage}. Counts do not assess truth, accuracy, reliability, or trustworthiness.`;
 }
 
 async function analyzeAnswer() {
@@ -96,7 +117,10 @@ async function analyzeAnswer() {
   busy = true;
   $("input-error").hidden = true;
   $("analyze-button").disabled = true;
-  $("analyze-button").querySelector("span").textContent = "Analyzing…";
+  $("analyze-label").textContent = "Analyzing…";
+  $("result-count").textContent = "Analyzing…";
+  $("empty-title").textContent = "Looking for what may change…";
+  $("empty-copy").textContent = "The local classifier is checking each sentence for temporal stability.";
   document.querySelector(".results-panel").setAttribute("aria-busy", "true");
   try {
     const response = await fetch("/api/analyze", {
@@ -110,15 +134,20 @@ async function analyzeAnswer() {
     }
     if (sequence !== requestSequence) return;
     renderResults(data, answer);
+    // Refresh the model description after a possible automatic model reload.
+    void loadModel();
   } catch (error) {
     if (sequence !== requestSequence) return;
     $("input-error").textContent = error instanceof TypeError ? "The local classifier is unavailable. Check that the server is running." : error.message;
     $("input-error").hidden = false;
+    $("result-count").textContent = currentResult ? `${currentResult.summary.total} sentences` : "Analysis unavailable";
+    $("empty-title").textContent = "Try your analysis again.";
+    $("empty-copy").textContent = "Check the message below your answer, then try again.";
   } finally {
     if (sequence === requestSequence) {
       busy = false;
       $("analyze-button").disabled = false;
-      $("analyze-button").querySelector("span").textContent = "Analyze answer";
+      $("analyze-label").textContent = "Analyze";
       document.querySelector(".results-panel").setAttribute("aria-busy", "false");
     }
   }
@@ -138,25 +167,19 @@ $("answer").addEventListener("keydown", (event) => {
     analyzeAnswer();
   }
 });
-$("analyze-button").addEventListener("click", analyzeAnswer);
+$("analysis-form").addEventListener("submit", (event) => { event.preventDefault(); analyzeAnswer(); });
 $("clear-button").addEventListener("click", () => {
   $("answer").value = "";
   countCharacters();
   resetResults();
   $("answer").focus();
 });
-document.querySelectorAll("[data-example]").forEach((button) => button.addEventListener("click", () => {
-  $("answer").value = examples[button.dataset.example];
-  countCharacters();
-  resetResults();
-  $("answer").focus();
-}));
 for (const name of ["highlight", "sentence"]) {
   $(name + "-tab").addEventListener("click", () => selectTab(name));
   $(name + "-tab").addEventListener("keydown", (event) => {
-    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+    if (["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
       event.preventDefault();
-      const other = name === "highlight" ? "sentence" : "highlight";
+      const other = event.key === "Home" ? "highlight" : event.key === "End" ? "sentence" : name === "highlight" ? "sentence" : "highlight";
       selectTab(other);
       $(other + "-tab").focus();
     }
@@ -164,10 +187,26 @@ for (const name of ["highlight", "sentence"]) {
 }
 $("threshold").addEventListener("input", () => {
   $("threshold-value").textContent = Number($("threshold").value).toFixed(2);
+  const hadAnalysis = currentResult || busy;
+  resetResults();
+  if (hadAnalysis) {
+    $("empty-title").textContent = "Threshold updated.";
+    $("empty-copy").textContent = "Analyze your answer again to update the stability labels.";
+    $("announcement").textContent = "Threshold updated. Analyze again to update the labels.";
+  }
 });
 $("copy-button").addEventListener("click", async () => {
   if (!currentResult) return;
-  const text = currentResult.claims.map((claim) => `${claim.label ? "🔴" : "🟢"} ${claim.label} = ${claim.label_name}: ${claim.text}`).join("\n");
+  const text = [
+    "Stability summary",
+    `${currentResult.summary.stable} ${$("stable-label").textContent}`,
+    `${currentResult.summary.volatile} ${$("volatile-label").textContent}`,
+    $("verification-message").textContent,
+    "Counts do not assess truth, accuracy, reliability, or trustworthiness.",
+    "Labels apply per sentence; a sentence may contain several claims.",
+    "",
+    ...currentResult.claims.map((claim) => `[${claim.label}] ${claim.label_name}: ${claim.text}`),
+  ].join("\n");
   try { await navigator.clipboard.writeText(text); toast("Sentence labels copied"); }
   catch { toast("Clipboard unavailable. Use Export JSON to save the results."); }
 });
@@ -188,13 +227,17 @@ async function loadModel() {
     const response = await fetch("/api/model");
     if (!response.ok) throw new Error("Model unavailable");
     const metadata = await response.json();
-    $("connection-status").textContent = "Local classifier ready";
-    $("model-description").textContent = `${metadata.algorithm}. ${metadata.training_rows.toLocaleString()} training examples, ${metadata.feature_count.toLocaleString()} text features, trained in ${metadata.train_seconds.toFixed(2)} seconds on CPU.`;
+    $("connection-status").textContent = metadata.semantic_encoder ? "Semantic classifier ready" : "Local classifier ready";
+    $("model-status").dataset.state = "ready";
+    $("model-description").textContent = metadata.semantic_encoder
+      ? `${metadata.algorithm}. A pretrained sentence encoder supplies contextual features; its weights stay fixed. The temporal classifier learns from ${metadata.training_rows.toLocaleString()} training examples. Local CPU run: ${metadata.encoding_seconds.toFixed(2)} seconds preparing sentence features and ${metadata.head_train_seconds.toFixed(2)} seconds fitting the selected classifier. Inference runs locally.`
+      : `${metadata.algorithm}. ${metadata.training_rows.toLocaleString()} training examples, ${metadata.feature_count.toLocaleString()} text features, trained in ${metadata.train_seconds.toFixed(2)} seconds on CPU.`;
   } catch {
     $("connection-status").textContent = "Classifier unavailable";
-    document.querySelector(".status-dot").style.background = "#c7726b";
+    $("model-status").dataset.state = "unavailable";
   }
 }
 countCharacters();
+if (/Mac|iPhone|iPad/.test(navigator.platform)) $("shortcut-modifier").textContent = "⌘";
 selectTab("highlight");
 loadModel();

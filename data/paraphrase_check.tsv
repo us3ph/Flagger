@@ -1,0 +1,61 @@
+label	group	text
+1	currency_forecast	A rise in the euro's value is expected.
+1	currency_forecast	Analysts anticipate that the single currency will appreciate.
+1	currency_forecast	The outlook points to a stronger euro.
+1	market_forecast	Crude oil is projected to become more expensive.
+1	market_forecast	A decline in the cost of gold is anticipated.
+1	market_forecast	Equity valuations are expected to climb.
+1	officeholder_current	The corporation is led by Maria Santos.
+1	officeholder_current	Maria Santos holds the chief executive role.
+1	officeholder_current	The person running the company is Maria Santos.
+1	pricing_current	Purchasing this device requires a payment of 299 dollars.
+1	pricing_current	The device can be bought for $299.
+1	pricing_current	A buyer pays 299 dollars for the device.
+1	software_latest	Release 6.2 is the most recent edition of the application.
+1	software_latest	The newest build of the application is numbered 6.2.
+1	software_latest	The application is now on version 6.2.
+1	travel_rule	Entry is permitted only to visitors with a visa.
+1	travel_rule	Travellers must obtain a visa before entering this country.
+1	travel_rule	A visa is required of people visiting the country.
+1	availability	The retailer has no remaining copies of the book.
+1	availability	The book cannot be purchased from this retailer.
+1	availability	Copies of the book are sold out at the shop.
+1	weather_forecast	Rainfall is anticipated over the city tomorrow.
+1	weather_forecast	The city is likely to experience showers tomorrow.
+1	weather_forecast	Tomorrow's weather outlook calls for rain in the city.
+1	event_schedule	The conference is due to begin on Friday.
+1	event_schedule	Friday is the scheduled opening day of the conference.
+1	event_schedule	Organisers plan to open the conference this Friday.
+1	statistics_current	The platform has attracted forty million users.
+1	statistics_current	Forty million people use the platform.
+1	statistics_current	The platform's user base stands at forty million.
+0	currency_history	The euro gained value against the dollar during 2009.
+0	currency_history	In 2009, the euro appreciated relative to the dollar.
+0	currency_history	An increase in the euro's dollar value occurred in 2009.
+0	price_history	A ticket sold for ten dollars back in 2012.
+0	price_history	The ticket's purchase price in 2012 was ten dollars.
+0	price_history	Buying a ticket required ten dollars in 2012.
+0	software_history	The application's first edition appeared in 2007.
+0	software_history	Its initial software release took place in 2007.
+0	software_history	The original version of the application launched in 2007.
+0	officeholder_history	Maria Santos led the corporation in 2004.
+0	officeholder_history	The chief executive position was held by Maria Santos in 2004.
+0	officeholder_history	Maria Santos was the person running the company in 2004.
+0	geometry	Every triangle is bounded by three sides.
+0	geometry	Three sides form the boundary of a triangle.
+0	geometry	A three-sided polygon is called a triangle.
+0	electricity	An electric current consists of moving electric charges.
+0	electricity	Electric charge in motion constitutes a current.
+0	electricity	The flow of electric charge is termed electric current.
+0	physical_relation	Our planet travels around the Sun.
+0	physical_relation	The Sun is orbited by the Earth.
+0	physical_relation	Earth follows an orbital path about the Sun.
+0	terminology	A forecast describes a prediction of a future event.
+0	terminology	A prediction about what may happen is known as a forecast.
+0	terminology	The term forecast denotes an estimate of future conditions.
+0	monetary_definition	An exchange rate compares how much two currencies are worth.
+0	monetary_definition	The relative value of two currencies is their exchange rate.
+0	monetary_definition	An exchange rate tells how one currency is valued in another.
+0	completed_authorship	George Orwell wrote the novel Animal Farm.
+0	completed_authorship	Animal Farm was authored by George Orwell.
+0	completed_authorship	The author who created Animal Farm was George Orwell.

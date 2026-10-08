@@ -137,6 +137,11 @@ def prepare(offline=False):
     train += [r for r in validation if r["group"] in required_groups]
     validation = [r for r in validation if r["group"] not in required_groups]
 
+    # Reported failures and related temporal contrasts are training regressions,
+    # not new benchmark evidence. Append after splitting so existing validation
+    # and test membership stays fixed. The audit below rejects held-out overlap.
+    train += curated(ROOT / "data/curated_regressions.tsv")
+
     datasets = {"train": train, "validation": validation, "test_questions": official_test, "test_statements": authored_test}
     audit = audit_splits(datasets)
     for split, records in datasets.items():

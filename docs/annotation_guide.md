@@ -16,6 +16,7 @@ Ask: **Could the information asserted here become outdated as time passes?** Ass
 - **Truth is independent.** “A triangle has four sides” is false but stable. “The current price is €999999” is volatile even if fabricated.
 - **Temporal anchoring matters.** “The fee is €50” is volatile; “The fee was €50 in 2010” is stable. “As of today, the fee is €50” remains volatile because “today” moves. This project treats an explicitly fixed historical snapshot as stable.
 - **A year alone is insufficient.** “The next election will be in 2030” is a changeable plan, whereas “The election took place in 2010” is completed history.
+- **Forecasts need context.** “The euro will go up” is volatile even without a date or the word “current.” “The euro went up in 2009” is completed history and stable. Enduring relations such as “A triangle will always have three sides” remain stable; do not label every use of “will” as volatile.
 - **Definitions differ from present instances.** “A CEO manages a company” is stable; “Alice is the CEO” is volatile. “Current is measured in amperes” is stable.
 - **Rates and amounts are not always volatile.** Unit conversions and chemical constants are stable. A quoted subscription fee is volatile.
 - **Latest and records are moving targets.** A named winner of the 2014 tournament is stable. A reigning champion or current record holder is volatile.
@@ -31,4 +32,4 @@ Ask: **Could the information asserted here become outdated as time passes?** Ass
 5. Discuss disagreements; record adjudicated labels and rationales.
 6. Group related claims and paraphrases before splitting. Freeze a test set before selecting features, models or thresholds.
 
-The current `curated_train.tsv` and `curated_test.tsv` contain **assistant-authored** labels. No independent human review, inter-annotator agreement study or claim-level gold annotation has been performed. Public short answers use weaker inherited question labels; do not treat them as manually validated claim labels. For mixed stable/volatile sentences, extract and annotate atomic claims manually when building a more rigorous dataset.
+The current `curated_train.tsv`, `curated_regressions.tsv` and `curated_test.tsv` contain **assistant-authored** labels. The regression supplement is training-only and includes reported failures and related temporal contrasts; it is not independent evaluation evidence. No independent human review, inter-annotator agreement study or claim-level gold annotation has been performed. Public short answers use weaker inherited question labels; do not treat them as manually validated claim labels. For mixed stable/volatile sentences, extract and annotate atomic claims manually when building a more rigorous dataset.

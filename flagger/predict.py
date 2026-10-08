@@ -15,13 +15,22 @@ LABELS = {0: "STABLE", 1: "TIME-SENSITIVE"}
 class StalenessClassifier:
     def __init__(self, model_path: Path = DEFAULT_MODEL):
         if not model_path.is_file():
-            raise FileNotFoundError("Model missing. Run: python scripts/train.py")
+            raise FileNotFoundError("Model missing. Run: python scripts/train_semantic.py (or python scripts/train.py for the lexical baseline)")
         artifact = joblib.load(model_path)
         self.pipeline = artifact["pipeline"]
         self.metadata = artifact["metadata"]
         self.version = artifact["format_version"]
         if self.version != 1 or list(self.pipeline.classes_) != [0, 1]:
             raise ValueError("Unsupported model artifact or label mapping")
+        if "semantic_encoder" in self.metadata:
+            from flagger.semantic import get_encoder
+            # Resolve assets against the artifact so a moved project is portable.
+            encoder_dir = str(model_path.parent / self.metadata["semantic_encoder"]["directory"])
+            features = self.pipeline.named_steps["features"]
+            for name, transformer in features.transformer_list:
+                if name == "semantic":
+                    transformer.model_dir = encoder_dir
+            get_encoder(encoder_dir)
 
     def predict_claims(self, texts: list[str], threshold: float = 0.5) -> list[dict]:
         if not 0 < threshold < 1:
@@ -54,5 +63,10 @@ class StalenessClassifier:
             "threshold": threshold,
             "elapsed_ms": round((perf_counter() - started) * 1000, 2),
             "model": self.metadata["model_kind"],
-            "scope": "Temporal volatility only. Labels do not indicate truth, falsehood, or actual staleness.",
+            "scope": (
+                "Temporal volatility only. Labels do not indicate truth, falsehood, or actual staleness. "
+                "Counts only summarize which claims may need current verification; their ratio does not "
+                "assess an answer's truth, accuracy, reliability, or trustworthiness. "
+                "Labels apply per sentence, which may contain several claims."
+            ),
         }

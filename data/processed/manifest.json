@@ -80,10 +80,10 @@
   ],
   "split_counts": {
     "train": {
-      "total": 3159,
-      "stable": 1652,
-      "volatile": 1507,
-      "curated_statements": 206
+      "total": 3223,
+      "stable": 1684,
+      "volatile": 1539,
+      "curated_statements": 270
     },
     "validation": {
       "total": 785,

@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 import platform
 import sys
+from tempfile import NamedTemporaryFile
 from time import perf_counter
 from datetime import datetime, timezone
 
@@ -19,6 +20,17 @@ import sklearn
 from sklearn.dummy import DummyClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score
 from flagger.model import make_pipeline
+
+
+def save_artifact(artifact, path):
+    """Replace the model after writing finishes, so inference sees whole files."""
+    with NamedTemporaryFile(dir=path.parent, prefix=".staleness-", suffix=".joblib", delete=False) as handle:
+        temporary_path = Path(handle.name)
+    try:
+        joblib.dump(artifact, temporary_path, compress=3)
+        temporary_path.replace(path)
+    finally:
+        temporary_path.unlink(missing_ok=True)
 
 
 def load_split(directory, name):
@@ -49,7 +61,7 @@ def evaluate(model, rows):
     }
 
 
-def run(data_dir, output_dir, report_dir):
+def run(data_dir, output_dir, report_dir, model_kind=None):
     output_dir.mkdir(parents=True, exist_ok=True)
     report_dir.mkdir(parents=True, exist_ok=True)
     train = load_split(data_dir, "train")
@@ -77,7 +89,16 @@ def run(data_dir, output_dir, report_dir):
         }
         print(f"{kind}: {train_seconds:.2f}s, statement validation macro-F1={candidates[kind]['validation_statements']['macro_f1']:.3f}")
     # Select only with validation labels. Prefer Logistic Regression on ties.
-    selected = max(candidates, key=lambda k: (candidates[k]["validation_statements"]["macro_f1"], k != "word_naive_bayes", k == "word_logistic"))
+    validation_selected = max(candidates, key=lambda k: (candidates[k]["validation_statements"]["macro_f1"], k != "word_naive_bayes", k == "word_logistic"))
+    if model_kind is not None and model_kind not in candidates:
+        raise ValueError(f"Unknown classifier: {model_kind}")
+    # A maintenance retrain can retain the deployed algorithm. This choice is
+    # explicit, recorded in the report, and never made from test-set scores.
+    selected = model_kind or validation_selected
+    selection_note = (
+        f"Fixed {selected} to retain the deployed algorithm; validation comparisons are reported separately"
+        if model_kind else "macro-F1 on project-authored validation statements only"
+    )
     model = pipelines[selected]
     tests = {"questions": load_split(data_dir, "test_questions"), "statements": load_split(data_dir, "test_statements")}
     test_metrics = {name: evaluate(model, rows) for name, rows in tests.items()}
@@ -128,12 +149,14 @@ def run(data_dir, output_dir, report_dir):
         "sklearn_version": sklearn.__version__, "python_version": platform.python_version(),
         "data_sha256": hashlib.sha256((data_dir / "train.csv").read_bytes()).hexdigest(),
         "offline_inference": True, "fine_tuning": False,
+        "selection_note": selection_note,
     }
     artifact_path = output_dir / "staleness.joblib"
-    joblib.dump({"format_version": 1, "pipeline": model, "metadata": metadata}, artifact_path, compress=3)
+    save_artifact({"format_version": 1, "pipeline": model, "metadata": metadata}, artifact_path)
     metadata["artifact_bytes"] = artifact_path.stat().st_size
     (output_dir / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n")
-    report = {"selected_model": selected, "selection_metric": "macro-F1 on project-authored validation statements only",
+    report = {"selected_model": selected, "selection_metric": selection_note,
+              "validation_selected_model": validation_selected,
               "candidates": candidates, "test": test_metrics, "majority_baseline": dummy_metrics,
               "data": manifest, "metadata": metadata}
     (report_dir / "metrics.json").write_text(json.dumps(report, indent=2) + "\n")
@@ -145,10 +168,10 @@ def run(data_dir, output_dir, report_dir):
 
 
 def render_report(report, directory):
-    lines = ["# Evaluation report", "", "Selection uses validation statements only. Both test sets remain outside training and selection. The saved classifier is the evaluated training-only model; validation is not folded into it.", "", "## Validation comparison", "", "| Model | Train seconds | Statement macro-F1 | All-data macro-F1 |", "|---|---:|---:|---:|"]
+    lines = ["# Evaluation report", "", report["selection_metric"] + ". Both test sets remain outside training and selection. The saved classifier is the evaluated training-only model; validation is not folded into it.", "", "## Validation comparison", "", "| Model | Train seconds | Statement macro-F1 | All-data macro-F1 |", "|---|---:|---:|---:|"]
     for name, values in report["candidates"].items():
         lines.append(f"| {name} | {values['train_seconds']:.3f} | {values['validation_statements']['macro_f1']:.3f} | {values['validation_all']['macro_f1']:.3f} |")
-    lines += ["", f"Selected: **{report['selected_model']}**.", "", "## Held-out evaluation", "", "| Set | N | Accuracy | Macro-F1 | Volatile precision | Volatile recall | Majority macro-F1 |", "|---|---:|---:|---:|---:|---:|---:|"]
+    lines += ["", f"Selected: **{report['selected_model']}**. Validation winner: **{report['validation_selected_model']}**.", "", "## Held-out evaluation", "", "| Set | N | Accuracy | Macro-F1 | Volatile precision | Volatile recall | Majority macro-F1 |", "|---|---:|---:|---:|---:|---:|---:|"]
     for name, values in report["test"].items():
         lines.append(f"| {name} | {values['n']} | {values['accuracy']:.3f} | {values['macro_f1']:.3f} | {values['volatile_precision']:.3f} | {values['volatile_recall']:.3f} | {report['majority_baseline'][name]['macro_f1']:.3f} |")
         lines += []
@@ -164,5 +187,6 @@ if __name__ == "__main__":
     parser.add_argument("--data-dir", type=Path, default=ROOT / "data/processed")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "models")
     parser.add_argument("--report-dir", type=Path, default=ROOT / "reports")
+    parser.add_argument("--model-kind", choices=["word_logistic", "word_char_logistic", "word_naive_bayes"], help="Retain a specified algorithm instead of selecting the validation winner")
     args = parser.parse_args()
-    run(args.data_dir, args.output_dir, args.report_dir)
+    run(args.data_dir, args.output_dir, args.report_dir, args.model_kind)

@@ -1,7 +1,9 @@
 import pytest
 from fastapi.testclient import TestClient
 
-from flagger.app import app
+from flagger.app import app, ClassifierStore
+from flagger.model import make_pipeline
+from scripts.train import save_artifact
 
 
 @pytest.fixture(scope="module")
@@ -40,3 +42,52 @@ def test_actual_binary_predictions_and_spans(client):
 ])
 def test_input_validation(client, payload, status):
     assert client.post("/api/analyze", json=payload).status_code == status
+
+
+def write_test_model(path, forecast_label, revision):
+    model = make_pipeline("word_logistic")
+    model.fit(["The euro will go up.", "A triangle has three sides."], [forecast_label, 1 - forecast_label])
+    save_artifact({
+        "format_version": 1,
+        "pipeline": model,
+        "metadata": {"model_kind": "word_logistic", "revision": revision},
+    }, path)
+
+
+def test_model_replacement_updates_predictions_and_metadata_without_restart(client, tmp_path, monkeypatch):
+    path = tmp_path / "staleness.joblib"
+    write_test_model(path, 0, "old")
+    monkeypatch.setattr(app.state, "models", ClassifierStore(path))
+    before = client.post("/api/analyze", json={"answer": "The euro will go up."}).json()
+    assert before["claims"][0]["label"] == 0
+    assert client.get("/api/model").json()["revision"] == "old"
+
+    write_test_model(path, 1, "new")
+    after = client.post("/api/analyze", json={"answer": "The euro will go up."}).json()
+    assert after["claims"][0]["label"] == 1
+    assert after["summary"] == {"total": 1, "stable": 0, "volatile": 1}
+    assert client.get("/api/model").json()["revision"] == "new"
+    assert client.get("/api/health").status_code == 200
+
+
+def test_failed_model_replacement_is_reported_and_recovers(client, tmp_path, monkeypatch):
+    path = tmp_path / "staleness.joblib"
+    write_test_model(path, 1, "first")
+    store = ClassifierStore(path)
+    monkeypatch.setattr(app.state, "models", store)
+    original = store.get()
+    path.write_bytes(b"invalid model artifact")
+    response = client.post("/api/analyze", json={"answer": "The euro will go up."})
+    assert response.status_code == 503
+    assert "could not be loaded" in response.json()["detail"]
+    assert store._classifier is original
+    write_test_model(path, 1, "repaired")
+    assert client.get("/api/model").json()["revision"] == "repaired"
+    assert client.post("/api/analyze", json={"answer": "The euro will go up."}).status_code == 200
+
+
+@pytest.mark.parametrize("path", ["/", "/static/app.js", "/api/model"])
+def test_browser_responses_are_not_cached(client, path):
+    response = client.get(path)
+    assert response.status_code == 200
+    assert response.headers["cache-control"] == "no-store"

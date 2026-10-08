@@ -2,165 +2,166 @@
   "stable": [
     {
       "feature": "was",
-      "weight": -6.2956
-    },
-    {
-      "feature": "which",
-      "weight": -4.4043
+      "weight": -4.7843
     },
     {
       "feature": "in",
-      "weight": -3.79
+      "weight": -4.6796
     },
     {
-      "feature": "called",
-      "weight": -3.1604
-    },
-    {
-      "feature": "an",
-      "weight": -2.9742
-    },
-    {
-      "feature": "first",
-      "weight": -2.8619
+      "feature": "which",
+      "weight": -2.851
     },
     {
       "feature": "capital",
-      "weight": -2.8463
-    },
-    {
-      "feature": "wrote",
-      "weight": -2.7879
-    },
-    {
-      "feature": "when",
-      "weight": -2.784
-    },
-    {
-      "feature": "author",
-      "weight": -2.7152
-    },
-    {
-      "feature": "did",
-      "weight": -2.7021
-    },
-    {
-      "feature": "the author",
-      "weight": -2.6621
-    },
-    {
-      "feature": "author of",
-      "weight": -2.6298
-    },
-    {
-      "feature": "what",
-      "weight": -2.5964
+      "weight": -2.6063
     },
     {
       "feature": "capital of",
-      "weight": -2.5803
+      "weight": -2.3023
     },
     {
-      "feature": "river",
-      "weight": -2.5328
-    },
-    {
-      "feature": "does the",
-      "weight": -2.4782
-    },
-    {
-      "feature": "film",
-      "weight": -2.4493
+      "feature": "when",
+      "weight": -2.2679
     },
     {
       "feature": "where is",
-      "weight": -2.3729
+      "weight": -2.2231
     },
     {
       "feature": "the capital",
-      "weight": -2.3666
+      "weight": -2.1416
+    },
+    {
+      "feature": "film",
+      "weight": -2.1134
+    },
+    {
+      "feature": "does the",
+      "weight": -2.0982
+    },
+    {
+      "feature": "an",
+      "weight": -2.074
+    },
+    {
+      "feature": "2010",
+      "weight": -2.0256
+    },
+    {
+      "feature": "in 2010",
+      "weight": -1.9507
+    },
+    {
+      "feature": "went",
+      "weight": -1.9378
+    },
+    {
+      "feature": "author",
+      "weight": -1.8291
+    },
+    {
+      "feature": "the author",
+      "weight": -1.783
+    },
+    {
+      "feature": "author of",
+      "weight": -1.7565
+    },
+    {
+      "feature": "first",
+      "weight": -1.7191
+    },
+    {
+      "feature": "voice",
+      "weight": -1.6761
+    },
+    {
+      "feature": "city",
+      "weight": -1.6361
     }
   ],
   "volatile": [
     {
-      "feature": "does",
-      "weight": 6.1245
-    },
-    {
       "feature": "work",
-      "weight": 5.5913
+      "weight": 4.4288
     },
     {
-      "feature": "age",
-      "weight": 5.4322
+      "feature": "does",
+      "weight": 4.1261
     },
     {
       "feature": "position",
-      "weight": 5.182
-    },
-    {
-      "feature": "current",
-      "weight": 4.6351
-    },
-    {
-      "feature": "the current",
-      "weight": 4.6211
+      "weight": 3.7664
     },
     {
       "feature": "what position",
-      "weight": 4.612
+      "weight": 3.7095
     },
     {
-      "feature": "is",
-      "weight": 4.5184
-    },
-    {
-      "feature": "this",
-      "weight": 4.2554
-    },
-    {
-      "feature": "has",
-      "weight": 4.1528
-    },
-    {
-      "feature": "the latest",
-      "weight": 4.1418
-    },
-    {
-      "feature": "latest",
-      "weight": 4.1418
-    },
-    {
-      "feature": "residence",
-      "weight": 3.8754
-    },
-    {
-      "feature": "where does",
-      "weight": 3.8724
-    },
-    {
-      "feature": "who is",
-      "weight": 3.8718
-    },
-    {
-      "feature": "the most",
-      "weight": 3.8441
-    },
-    {
-      "feature": "currently",
-      "weight": 3.8361
-    },
-    {
-      "feature": "league",
-      "weight": 3.7839
+      "feature": "age",
+      "weight": 3.3479
     },
     {
       "feature": "with",
-      "weight": 3.7057
+      "weight": 3.3363
     },
     {
-      "feature": "residence located",
-      "weight": 3.661
+      "feature": "is",
+      "weight": 3.2167
+    },
+    {
+      "feature": "relationship",
+      "weight": 3.1643
+    },
+    {
+      "feature": "in relationship",
+      "weight": 3.1643
+    },
+    {
+      "feature": "position did",
+      "weight": 3.0213
+    },
+    {
+      "feature": "where does",
+      "weight": 2.9197
+    },
+    {
+      "feature": "this",
+      "weight": 2.8993
+    },
+    {
+      "feature": "has",
+      "weight": 2.8639
+    },
+    {
+      "feature": "the most",
+      "weight": 2.8593
+    },
+    {
+      "feature": "which music",
+      "weight": 2.8205
+    },
+    {
+      "feature": "music label",
+      "weight": 2.8205
+    },
+    {
+      "feature": "label",
+      "weight": 2.8205
+    },
+    {
+      "feature": "the latest",
+      "weight": 2.7906
+    },
+    {
+      "feature": "latest",
+      "weight": 2.7906
+    },
+    {
+      "feature": "most",
+      "weight": 2.7648
     }
-  ]
+  ],
+  "note": "These are only the lexical branch. Contextual embedding dimensions are not individual words."
 }

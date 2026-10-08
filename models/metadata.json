@@ -1,60 +1,79 @@
 {
   "name": "AI Answer Staleness Flagger",
-  "model_kind": "word_logistic",
-  "algorithm": "TF-IDF + Logistic Regression",
+  "model_kind": "hybrid_logistic",
+  "algorithm": "MiniLM sentence embeddings + TF-IDF + Logistic Regression",
   "labels": {
     "0": "STABLE",
     "1": "TIME-SENSITIVE"
   },
   "language": "English",
   "threshold": 0.5,
-  "feature_count": 17384,
-  "training_rows": 3159,
-  "train_seconds": 0.0994,
-  "batch_20_ms": 0.724,
+  "training_rows": 3223,
+  "feature_count": 18042,
+  "embedding_dimensions": 384,
+  "train_seconds": 23.682,
+  "encoding_seconds": 22.8813,
+  "head_train_seconds": 0.8007,
+  "batch_20_ms": 69.196,
   "statement_test": {
     "n": 100,
-    "accuracy": 0.84,
-    "macro_f1": 0.8399359743897559,
-    "volatile_f1": 0.8367346938775511,
-    "volatile_precision": 0.8541666666666666,
-    "volatile_recall": 0.82,
+    "accuracy": 0.95,
+    "macro_f1": 0.9499949994999499,
+    "volatile_f1": 0.9494949494949495,
+    "volatile_precision": 0.9591836734693877,
+    "volatile_recall": 0.94,
     "confusion_matrix": [
       [
-        43,
-        7
+        48,
+        2
       ],
       [
-        9,
-        41
+        3,
+        47
       ]
     ]
   },
   "question_test": {
     "n": 1270,
-    "accuracy": 0.8598425196850393,
-    "macro_f1": 0.8181680710661532,
-    "volatile_f1": 0.7311178247734139,
-    "volatile_precision": 0.7138643067846607,
-    "volatile_recall": 0.7492260061919505,
+    "accuracy": 0.868503937007874,
+    "macro_f1": 0.8330887126920732,
+    "volatile_f1": 0.7562043795620438,
+    "volatile_precision": 0.7154696132596685,
+    "volatile_recall": 0.8018575851393189,
     "confusion_matrix": [
       [
-        850,
-        97
+        844,
+        103
       ],
       [
-        81,
-        242
+        64,
+        259
       ]
     ]
   },
+  "semantic_encoder": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "directory": "semantic_encoder",
+    "frozen": true,
+    "max_tokens": 256
+  },
+  "selected_parameters": {
+    "key": "semantic=0.5,C=4.0",
+    "semantic_weight": 0.5,
+    "C": 4.0,
+    "validation_macro_f1": 0.94442538593482,
+    "head_train_seconds": 0.8007
+  },
   "annotation_note": "Project-authored statements were labeled by the coding assistant with the rubric. They are not independent human annotations. Short public answers inherit weak question labels.",
-  "probability_note": "Scores are classifier estimates, not calibrated probabilities of correctness or actual staleness.",
-  "trained_at": "2026-10-07T16:12:45.170582+00:00",
+  "probability_note": "Uncalibrated temporal-volatility scores, not factual correctness or actual staleness.",
+  "trained_at": "2026-10-08T09:29:03.891119+00:00",
   "sklearn_version": "1.8.0",
   "python_version": "3.13.2",
-  "data_sha256": "d685268378df9942dd757d9ee083b2802aed9c54275813041185f638923c36f2",
+  "data_sha256": "761870947f51d4cd7e352992ca0f63855da951f2e31f4e21f40f49dc9741ea73",
   "offline_inference": true,
   "fine_tuning": false,
-  "artifact_bytes": 259009
+  "selection_note": "Semantic settings selected by macro-F1 on existing validation statements only; test and paraphrase labels excluded",
+  "artifact_bytes": 270273,
+  "encoder_bytes": 91578529
 }

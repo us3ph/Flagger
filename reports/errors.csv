@@ -1,195 +1,180 @@
 evaluation_set,id,text,gold_label,prediction,volatility_probability
-questions,eg_test_1,"So tell me, how many toes does a dog have on its front and back paws?",0,1,0.8092
-questions,eg_test_17,In what year did Leonardo DiCaprio win an Oscar?,1,0,0.107345
-questions,eg_test_24,In what year will the presidential election take place in Russia?,1,0,0.150033
-questions,eg_test_32,In which city is 'Chistaya Liniya' cosmetics produced?,1,0,0.029844
-questions,eg_test_47,Where does peanuts grow?,0,1,0.994349
-questions,eg_test_50,Date of the FIFA World Cup.,1,0,0.204817
-questions,eg_test_63,What is the name of the most popular social network in the world?,1,0,0.436604
-questions,eg_test_68,Which graphics card is the most powerful in 2023?,0,1,0.672256
-questions,eg_test_71,What is the salary of an IT specialist in Moscow?,1,0,0.151126
-questions,eg_test_73,What is the most popular cat breed?,0,1,0.893658
-questions,eg_test_76,What is the biggest star in the sky?,1,0,0.387779
-questions,eg_test_78,What is the largest bird in the world?,0,1,0.599412
-questions,eg_test_79,What is the lowest temperature ever recorded in Antarctica?,1,0,0.210907
-questions,eg_test_80,What is the most poisonous fish in the ocean?,0,1,0.807255
-questions,eg_test_89,What number president of the United States was Kennedy?,0,1,0.576778
-questions,eg_test_93,What is the average annual temperature in Canada?,1,0,0.317405
-questions,eg_test_98,Which tree is the oldest?,1,0,0.315417
-questions,eg_test_109,Which month is the hottest in Turkey?,0,1,0.641955
-questions,eg_test_112,What percentage of the world's gas production is extracted in Yamal?,1,0,0.341922
-questions,eg_test_113,What percentage of Russia's territory is located beyond the Arctic Circle?,0,1,0.592007
-questions,eg_test_121,At what speed does the freight train travel?,1,0,0.464961
-questions,eg_test_122,What speed does a cheetah reach?,0,1,0.749421
-questions,eg_test_124,When will the next planetary alignment be?,1,0,0.423213
-questions,eg_test_130,When will the third season of the series 'Vampires of the Central Region' be released?,1,0,0.271005
-questions,eg_test_132,When do Jews celebrate Hanukkah?,1,0,0.042714
-questions,eg_test_144,Who lives at the bottom of the Mariana Trench?,0,1,0.582119
-questions,eg_test_153,Who is the director of the film 'Guardians of the Galaxy'?,0,1,0.807488
-questions,eg_test_158,The best football player of the year 2000.,0,1,0.500634
-questions,eg_test_166,Which animal has the highest blood pressure?,0,1,0.578455
-questions,eg_test_169,In which movies has Danila Kozlovsky acted?,1,0,0.273199
-questions,eg_test_173,In which country is the longest street in the world located?,1,0,0.218349
-questions,eg_test_175,In which country is the longest railway?,1,0,0.074896
-questions,eg_test_184,In what year was the last solar eclipse?,1,0,0.026822
-questions,eg_test_186,In which year was the highest wheat harvest collected in Russia?,1,0,0.329643
-questions,eg_test_211,In which city will the next Olympics be held?,1,0,0.183335
-questions,eg_test_217,Where does Ded Moroz live?,0,1,0.864354
-questions,eg_test_233,The currency of the United States.,0,1,0.74741
-questions,eg_test_246,What is the name of the central square of Nizhny Novgorod?,1,0,0.140248
-questions,eg_test_247,How are the colors of the Russian flag arranged?,0,1,0.525357
-questions,eg_test_249,Which snake is the most venomous?,0,1,0.98465
-questions,eg_test_250,What is the length of the Amazon River?,1,0,0.124516
-questions,eg_test_253,What is the largest desert on Earth?,0,1,0.519722
-questions,eg_test_259,What was the lowest temperature ever recorded on Earth?,1,0,0.021062
-questions,eg_test_269,Which berry is the largest?,0,1,0.725805
-questions,eg_test_285,How many states are there in the USA?,0,1,0.626929
-questions,eg_test_297,What soil is suitable for succulents?,0,1,0.651815
-questions,eg_test_302,What is the latest movie starring Bruce Willis?,0,1,0.734861
-questions,eg_test_306,What is the highest-grossing film in history?,1,0,0.159281
-questions,eg_test_307,What is the most popular TV series in 2023?,0,1,0.603469
-questions,eg_test_317,When is the next leap year?,1,0,0.39948
-questions,eg_test_318,When will the full moon be in April?,1,0,0.13245
-questions,eg_test_319,When will the next Olympics be?,1,0,0.42185
-questions,eg_test_320,When was the last episode of 'Orel i Reshka' released?,1,0,0.020187
-questions,eg_test_322,When will the new iPhone be released?,1,0,0.182441
-questions,eg_test_324,When is the day of the spring equinox?,1,0,0.157524
-questions,eg_test_329,When will the next solar eclipse take place?,1,0,0.408202
-questions,eg_test_331,Which breed of cats is the largest?,0,1,0.716366
-questions,eg_test_340,Who was the seventeenth president of the United States?,0,1,0.600513
-questions,eg_test_342,Who was the third president of the United States?,0,1,0.57325
-questions,eg_test_345,Who is the supreme god among Hindus?,0,1,0.653986
-questions,eg_test_351,Which Russian performers have achieved the highest placements in the Eurovision Song Contest?,0,1,0.506994
-questions,eg_test_359,Who is Julia Roberts' niece?,0,1,0.669081
-questions,eg_test_381,Who was the last football world champion?,1,0,0.267382
-questions,eg_test_403,Where does the Romanov dynasty originate from?,0,1,0.540576
-questions,eg_test_408,Tell me the years of life of Flavio Biondo.,0,1,0.728039
-questions,eg_test_411,Which artist's works are the best-selling in the world?,1,0,0.278329
-questions,eg_test_413,Tell me about the oldest living being on Earth.,1,0,0.404979
-questions,eg_test_414,Tell me about the brand 'Irbis' — it is a Russian manufacturer.,0,1,0.792609
-questions,eg_test_415,"Tell me, how many galaxies exist in the Universe?",0,1,0.646628
-questions,eg_test_417,Since what year have Guinness World Records been registered?,0,1,0.528524
-questions,eg_test_422,The highest-paid football player.,1,0,0.48635
-questions,eg_test_424,The oldest active football player.,1,0,0.4598
-questions,eg_test_431,"Tell me, who voiced Rapunzel in the original?",0,1,0.584276
-questions,eg_test_434,Tell me the name of the best-selling music album in history.,1,0,0.45453
-questions,eg_test_435,"Please tell me, who is the director of the film 'Interstellar'?",0,1,0.922854
-questions,eg_test_440,How many nuclear power plants are there in the world?,1,0,0.40957
-questions,eg_test_444,How many seas are there in the world?,0,1,0.585881
-questions,eg_test_451,How many hairs are there on a person's head?,0,1,0.570035
-questions,eg_test_453,How many cities are there in Russia in total?,1,0,0.341952
-questions,eg_test_457,How many parts of the animated film 'Ivan Tsarevich and the Grey Wolf' have been released in total?,1,0,0.241532
-questions,eg_test_461,How many children does Arnold Schwarzenegger have?,0,1,0.752717
-questions,eg_test_474,How many zoos are there in Nizhny Novgorod?,1,0,0.231745
-questions,eg_test_475,How many teeth does a shark have?,0,1,0.516208
-questions,eg_test_476,How many teeth does a bear have?,0,1,0.523984
-questions,eg_test_477,How many planets similar to Earth are known?,1,0,0.330212
-questions,eg_test_486,How old is Ded Moroz?,0,1,0.885986
-questions,eg_test_501,How many minutes does a basketball game last?,0,1,0.604979
-questions,eg_test_502,How many monarchs have there been in England throughout its history?,1,0,0.387354
-questions,eg_test_511,How many Grammy Awards has Ozzy Osbourne won?,0,1,0.760458
-questions,eg_test_513,How many radio stations broadcast in the city of Moscow?,1,0,0.189007
-questions,eg_test_516,How many districts are there in the city of Saint Petersburg?,1,0,0.25276
-questions,eg_test_518,How many arms does a human have?,0,1,0.727282
-questions,eg_test_521,How many moons does the planet Jupiter have?,1,0,0.265339
-questions,eg_test_526,How many dog breeds are there?,1,0,0.433552
-questions,eg_test_530,How many parts are there in the movie 'Final Destination'?,1,0,0.373869
-questions,eg_test_534,What is the religious symbol of Christianity?,0,1,0.503029
-questions,eg_test_536,What is the speed of light?,0,1,0.537358
-questions,eg_test_549,How many strings does a soprano ukulele have?,0,1,0.918537
-questions,eg_test_550,When was the last earthquake in Russia?,1,0,0.023012
-questions,eg_test_556,Since what year has the Nobel Prize been awarded?,0,1,0.622577
-questions,eg_test_558,The closest star to planet Earth.,1,0,0.128388
-questions,eg_test_561,The youngest actor to win an Oscar for a leading role.,1,0,0.245341
-questions,eg_test_566,How many white rhinos are left in the world?,1,0,0.490579
-questions,eg_test_568,How long does a spruce tree live on average?,0,1,0.706285
-questions,eg_test_569,How much does a whale weigh?,0,1,0.500198
-questions,eg_test_572,How many vitamins are there in total?,1,0,0.310822
-questions,eg_test_577,How many animals are listed in the Red Book?,1,0,0.412073
-questions,eg_test_581,How many legs does a tarantula have?,0,1,0.918537
-questions,eg_test_597,How many peoples are there in the world?,0,1,0.585881
-questions,eg_test_604,What is the largest American state?,0,1,0.574934
-questions,eg_test_605,Who is the founder of Microsoft?,0,1,0.501774
-questions,eg_test_619,The largest ocean.,0,1,0.694867
-questions,eg_test_631,The largest snake on the planet.,1,0,0.295473
-questions,eg_test_633,When is Trinity celebrated?,1,0,0.122452
-questions,eg_test_636,President of Russia in ninety-six.,0,1,0.611416
-questions,eg_test_658,The largest island of Russia.,0,1,0.570503
-questions,eg_test_662,The most full-flowing river.,0,1,0.681038
-questions,eg_test_668,President of America.,1,0,0.454128
-questions,eg_test_672,"Adolf Hitler, how old?",0,1,0.707947
-questions,eg_test_676,World record for the plank.,1,0,0.497645
-questions,eg_test_681,With whom did Lermontov have a duel?,0,1,0.623142
-questions,eg_test_682,How old is Mark Zakharov?,0,1,0.880967
-questions,eg_test_692,In what year did the singer Natalya Andreeva die?,1,0,0.029567
-questions,eg_test_698,The height of the Ostankino Tower.,0,1,0.620811
-questions,eg_test_702,How old is basketball?,0,1,0.916837
-questions,eg_test_703,How old is Zhirinovsky?,0,1,0.838418
-questions,eg_test_712,How many days did it take to build the Ostankino Tower?,0,1,0.529751
-questions,eg_test_719,James Howlett.,0,1,0.522072
-questions,eg_test_721,The year of birth of Philipp Kirkorov.,0,1,0.703897
-questions,eg_test_723,How many inhabitants live in the city of Saransk?,1,0,0.26268
-questions,eg_test_724,Who owns the company Gazprom?,0,1,0.780864
-questions,eg_test_739,What is the zodiac sign for April 14?,0,1,0.52483
-questions,eg_test_766,What is the weight of a 2 ruble coin?,0,1,0.504861
-questions,eg_test_774,How many people are there on Earth?,1,0,0.482474
-questions,eg_test_781,The population of China in nineteen forty.,0,1,0.712296
-questions,eg_test_785,What is the ambulance number?,0,1,0.601074
-questions,eg_test_816,How many capitals are there on Earth?,1,0,0.280992
-questions,eg_test_821,The area of Moscow.,1,0,0.186472
-questions,eg_test_833,What is the area of the Moscow region?,1,0,0.163991
-questions,eg_test_841,Is Zadornov alive?,0,1,0.975413
-questions,eg_test_845,Who is the founder of Tesla?,0,1,0.50762
-questions,eg_test_855,What is the currency in Bulgaria?,1,0,0.211949
-questions,eg_test_863,Please tell me the years of Anton Pavlovich Chekhov's life.,0,1,0.772923
-questions,eg_test_883,What is the world record in the 400 meter run?,1,0,0.435898
-questions,eg_test_890,How many streets are there in Moscow?,1,0,0.280839
-questions,eg_test_893,What is the name of Trump's wife?,1,0,0.138873
-questions,eg_test_913,On what date does the month of Ramadan begin?,1,0,0.263095
-questions,eg_test_923,What is the subsistence minimum in Krasnodar Krai?,1,0,0.262523
-questions,eg_test_926,And how old is our planet?,0,1,0.799508
-questions,eg_test_952,How many inhabitants live in Cheboksary?,1,0,0.291564
-questions,eg_test_963,The number of seas that wash the shores of Russia.,0,1,0.689061
-questions,eg_test_966,"Long time no see, Baste!",1,0,0.224558
-questions,eg_test_969,How old is Vera Vasilyeva?,0,1,0.912372
-questions,eg_test_1007,The longest wall in the world.,0,1,0.575932
-questions,eg_test_1028,"President of North Korea, name.",1,0,0.381808
-questions,eg_test_1044,The largest waterfall in the world.,0,1,0.674233
-questions,eg_test_1048,How many districts are there in Moscow?,1,0,0.3854
-questions,eg_test_1049,The longest escalator in the Saint Petersburg metro.,1,0,0.382585
-questions,eg_test_1064,Dimensions of aerated concrete blocks.,0,1,0.504572
-questions,eg_test_1067,When did Amitabh Bachchan die?,1,0,0.018053
-questions,eg_test_1080,Who is the creator of VK?,0,1,0.835508
-questions,eg_test_1106,"Please tell me, how many people have held the rank of Generalissimo?",0,1,0.923196
-questions,eg_test_1129,Who was the 40th president of the United States?,0,1,0.600513
-questions,eg_test_1130,How many heartbeats per minute does a hummingbird have?,0,1,0.928034
-questions,eg_test_1140,What is the largest number in mathematics?,0,1,0.554051
-questions,eg_test_1159,What position did Stalin hold?,0,1,0.897858
-questions,eg_test_1168,The largest tree in the world.,0,1,0.723512
-questions,eg_test_1192,Since what year has the program 'Pole Chudes' been running?,0,1,0.658836
-questions,eg_test_1197,The deepest metro.,1,0,0.285673
-questions,eg_test_1205,At what age did Mike Tyson become the world boxing champion?,0,1,0.566844
-questions,eg_test_1209,"Penza, time zone.",1,0,0.144965
-questions,eg_test_1234,"Could you please tell me, which husband is Galkin for Alla Pugacheva?",0,1,0.618653
-questions,eg_test_1238,How many krais are there in Russia in total?,1,0,0.331995
-questions,eg_test_1244,How old is Dzhigarkhanyan?,0,1,0.967765
-questions,eg_test_1248,How many sides does a square have?,0,1,0.683957
-questions,eg_test_1249,And what is the currency in Poland?,1,0,0.188163
-questions,eg_test_1264,Who is the coach of the CSKA hockey club?,0,1,0.967492
-questions,eg_test_1267,"Leonid Arkadyevich Yakubovich, how old is he?",0,1,0.919511
-statements,curated_test_001,The symbol Na represents sodium.,0,1,0.580719
-statements,curated_test_002,Hydrogen has atomic number one.,0,1,0.656715
-statements,curated_test_008,A volt is a unit of electric potential difference.,0,1,0.504836
-statements,curated_test_014,A synonym is a word with a similar meaning.,0,1,0.814877
-statements,curated_test_033,The stock closed at 42 dollars on 3 January 2000.,0,1,0.845401
-statements,curated_test_039,A fare is a payment for transportation.,0,1,0.658216
-statements,curated_test_042,Current is measured with an ammeter.,0,1,0.549508
-statements,curated_test_062,The service's free tier allows 1000 API calls a day.,1,0,0.299189
-statements,curated_test_065,Robert Lee serves as the finance minister.,1,0,0.350235
-statements,curated_test_067,Nora is the university's vice-chancellor.,1,0,0.46008
-statements,curated_test_068,The mayor of the city is David Miller.,1,0,0.313257
-statements,curated_test_075,The last tram departs at 11:45 p.m.,1,0,0.430945
-statements,curated_test_078,Admissions close on January 15.,1,0,0.427505
-statements,curated_test_080,The clinic accepts walk-in patients on Tuesdays.,1,0,0.197884
-statements,curated_test_085,The club occupies first place in the standings.,1,0,0.393758
-statements,curated_test_094,The highest-grossing movie is Avatar.,1,0,0.419234
+questions,eg_test_1,"So tell me, how many toes does a dog have on its front and back paws?",0,1,0.675706
+questions,eg_test_17,In what year did Leonardo DiCaprio win an Oscar?,1,0,0.131346
+questions,eg_test_24,In what year will the presidential election take place in Russia?,1,0,0.368968
+questions,eg_test_32,In which city is 'Chistaya Liniya' cosmetics produced?,1,0,0.083563
+questions,eg_test_47,Where does peanuts grow?,0,1,0.960341
+questions,eg_test_68,Which graphics card is the most powerful in 2023?,0,1,0.897936
+questions,eg_test_73,What is the most popular cat breed?,0,1,0.900263
+questions,eg_test_76,What is the biggest star in the sky?,1,0,0.493936
+questions,eg_test_78,What is the largest bird in the world?,0,1,0.591682
+questions,eg_test_79,What is the lowest temperature ever recorded in Antarctica?,1,0,0.134689
+questions,eg_test_86,What documents are needed to move to Kazakhstan?,0,1,0.517031
+questions,eg_test_89,What number president of the United States was Kennedy?,0,1,0.564375
+questions,eg_test_92,What is the area of Liechtenstein?,0,1,0.608249
+questions,eg_test_93,What is the average annual temperature in Canada?,1,0,0.368472
+questions,eg_test_98,Which tree is the oldest?,1,0,0.190229
+questions,eg_test_109,Which month is the hottest in Turkey?,0,1,0.546034
+questions,eg_test_112,What percentage of the world's gas production is extracted in Yamal?,1,0,0.4186
+questions,eg_test_116,Which TV series is considered the most popular?,1,0,0.464804
+questions,eg_test_117,Which athlete is the highest paid in 2023?,0,1,0.903117
+questions,eg_test_118,Which film starring Brad Pitt is the highest rated?,0,1,0.558136
+questions,eg_test_132,When do Jews celebrate Hanukkah?,1,0,0.049554
+questions,eg_test_153,Who is the director of the film 'Guardians of the Galaxy'?,0,1,0.786901
+questions,eg_test_158,The best football player of the year 2000.,0,1,0.69921
+questions,eg_test_169,In which movies has Danila Kozlovsky acted?,1,0,0.358589
+questions,eg_test_173,In which country is the longest street in the world located?,1,0,0.249912
+questions,eg_test_175,In which country is the longest railway?,1,0,0.132924
+questions,eg_test_184,In what year was the last solar eclipse?,1,0,0.032692
+questions,eg_test_186,In which year was the highest wheat harvest collected in Russia?,1,0,0.472766
+questions,eg_test_217,Where does Ded Moroz live?,0,1,0.890159
+questions,eg_test_233,The currency of the United States.,0,1,0.768507
+questions,eg_test_241,What is the name of the lead singer of Linkin Park?,0,1,0.606512
+questions,eg_test_246,What is the name of the central square of Nizhny Novgorod?,1,0,0.036078
+questions,eg_test_249,Which snake is the most venomous?,0,1,0.940154
+questions,eg_test_250,What is the length of the Amazon River?,1,0,0.058829
+questions,eg_test_259,What was the lowest temperature ever recorded on Earth?,1,0,0.016131
+questions,eg_test_269,Which berry is the largest?,0,1,0.550214
+questions,eg_test_285,How many states are there in the USA?,0,1,0.833392
+questions,eg_test_299,What is the best horror movie of 2022?,0,1,0.643778
+questions,eg_test_302,What is the latest movie starring Bruce Willis?,0,1,0.904181
+questions,eg_test_303,What percentage of people on Earth are left-handed?,0,1,0.574612
+questions,eg_test_304,What is the subsistence minimum set in Russia in 2024?,0,1,0.703509
+questions,eg_test_305,What is the longest day in 2024?,0,1,0.770795
+questions,eg_test_306,What is the highest-grossing film in history?,1,0,0.223008
+questions,eg_test_307,What is the most popular TV series in 2023?,0,1,0.883207
+questions,eg_test_318,When will the full moon be in April?,1,0,0.378865
+questions,eg_test_320,When was the last episode of 'Orel i Reshka' released?,1,0,0.053943
+questions,eg_test_324,When is the day of the spring equinox?,1,0,0.094425
+questions,eg_test_331,Which breed of cats is the largest?,0,1,0.696585
+questions,eg_test_351,Which Russian performers have achieved the highest placements in the Eurovision Song Contest?,0,1,0.526508
+questions,eg_test_359,Who is Julia Roberts' niece?,0,1,0.782571
+questions,eg_test_364,Who won the Oscar for Best Documentary Feature in 2020?,0,1,0.535595
+questions,eg_test_377,Who was recognized as the best actor in 2024?,0,1,0.662118
+questions,eg_test_381,Who was the last football world champion?,1,0,0.312076
+questions,eg_test_382,Who is in first place on the Forbes list in 2024?,0,1,0.931956
+questions,eg_test_413,Tell me about the oldest living being on Earth.,1,0,0.188937
+questions,eg_test_414,Tell me about the brand 'Irbis' — it is a Russian manufacturer.,0,1,0.758651
+questions,eg_test_415,"Tell me, how many galaxies exist in the Universe?",0,1,0.717264
+questions,eg_test_417,Since what year have Guinness World Records been registered?,0,1,0.761522
+questions,eg_test_423,The rarest element in the periodic table.,0,1,0.501191
+questions,eg_test_434,Tell me the name of the best-selling music album in history.,1,0,0.334295
+questions,eg_test_435,"Please tell me, who is the director of the film 'Interstellar'?",0,1,0.914199
+questions,eg_test_450,How many species of elephants currently live on the planet?,0,1,0.563411
+questions,eg_test_453,How many cities are there in Russia in total?,1,0,0.418286
+questions,eg_test_456,How many episodes are there in 'Supernatural' in total?,0,1,0.54354
+questions,eg_test_457,How many parts of the animated film 'Ivan Tsarevich and the Grey Wolf' have been released in total?,1,0,0.334307
+questions,eg_test_461,How many children does Arnold Schwarzenegger have?,0,1,0.941833
+questions,eg_test_465,How long is the movie 'Everything Everywhere All at Once'?,0,1,0.602783
+questions,eg_test_474,How many zoos are there in Nizhny Novgorod?,1,0,0.217583
+questions,eg_test_477,How many planets similar to Earth are known?,1,0,0.345088
+questions,eg_test_486,How old is Ded Moroz?,0,1,0.937991
+questions,eg_test_502,How many monarchs have there been in England throughout its history?,1,0,0.42395
+questions,eg_test_503,How many gold medals did Russia have at the 2014 Olympics?,0,1,0.521739
+questions,eg_test_506,How many pavilions are there at VDNH?,0,1,0.90331
+questions,eg_test_511,How many Grammy Awards has Ozzy Osbourne won?,0,1,0.856292
+questions,eg_test_513,How many radio stations broadcast in the city of Moscow?,1,0,0.289559
+questions,eg_test_516,How many districts are there in the city of Saint Petersburg?,1,0,0.23135
+questions,eg_test_518,How many arms does a human have?,0,1,0.510341
+questions,eg_test_521,How many moons does the planet Jupiter have?,1,0,0.273003
+questions,eg_test_536,What is the speed of light?,0,1,0.602946
+questions,eg_test_548,Can you tell me which Russian films have won an Oscar?,1,0,0.19071
+questions,eg_test_549,How many strings does a soprano ukulele have?,0,1,0.773136
+questions,eg_test_550,When was the last earthquake in Russia?,1,0,0.020247
+questions,eg_test_556,Since what year has the Nobel Prize been awarded?,0,1,0.679649
+questions,eg_test_558,The closest star to planet Earth.,1,0,0.219594
+questions,eg_test_561,The youngest actor to win an Oscar for a leading role.,1,0,0.469783
+questions,eg_test_568,How long does a spruce tree live on average?,0,1,0.642879
+questions,eg_test_570,How many issues of the magazine 'Science and Life' have been published in total?,0,1,0.522066
+questions,eg_test_572,How many vitamins are there in total?,1,0,0.301188
+questions,eg_test_575,How many days does the Paris–Dakar rally last?,0,1,0.888342
+questions,eg_test_581,How many legs does a tarantula have?,0,1,0.511396
+questions,eg_test_596,How many moons does Saturn have?,1,0,0.459007
+questions,eg_test_597,How many peoples are there in the world?,0,1,0.787211
+questions,eg_test_604,What is the largest American state?,0,1,0.789143
+questions,eg_test_608,What is Obama doing?,0,1,0.907254
+questions,eg_test_619,The largest ocean.,0,1,0.643398
+questions,eg_test_631,The largest snake on the planet.,1,0,0.298378
+questions,eg_test_633,When is Trinity celebrated?,1,0,0.169349
+questions,eg_test_634,What is Danila Dunaev's height?,0,1,0.50295
+questions,eg_test_636,President of Russia in ninety-six.,0,1,0.646537
+questions,eg_test_652,How many Orders of Victory were issued?,0,1,0.6133
+questions,eg_test_657,The birthday of footballer Isco.,0,1,0.863899
+questions,eg_test_661,How many passengers could the Titanic accommodate?,0,1,0.578198
+questions,eg_test_662,The most full-flowing river.,0,1,0.65775
+questions,eg_test_682,How old is Mark Zakharov?,0,1,0.933484
+questions,eg_test_692,In what year did the singer Natalya Andreeva die?,1,0,0.043803
+questions,eg_test_702,How old is basketball?,0,1,0.772867
+questions,eg_test_703,How old is Zhirinovsky?,0,1,0.891075
+questions,eg_test_719,James Howlett.,0,1,0.734884
+questions,eg_test_721,The year of birth of Philipp Kirkorov.,0,1,0.528794
+questions,eg_test_723,How many inhabitants live in the city of Saransk?,1,0,0.18234
+questions,eg_test_724,Who owns the company Gazprom?,0,1,0.822369
+questions,eg_test_760,How many people live in Nizhny Novgorod?,1,0,0.481532
+questions,eg_test_785,What is the ambulance number?,0,1,0.805833
+questions,eg_test_793,The surname of the president on the five-dollar bill.,0,1,0.629881
+questions,eg_test_803,The population of the city of Novotroitsk in the Orenburg region.,1,0,0.307217
+questions,eg_test_807,What is the currency of Vatican City?,0,1,0.570796
+questions,eg_test_816,How many capitals are there on Earth?,1,0,0.337172
+questions,eg_test_821,The area of Moscow.,1,0,0.15273
+questions,eg_test_833,What is the area of the Moscow region?,1,0,0.127011
+questions,eg_test_839,Who was the president of France in 2012?,0,1,0.619151
+questions,eg_test_841,Is Zadornov alive?,0,1,0.956277
+questions,eg_test_845,Who is the founder of Tesla?,0,1,0.693409
+questions,eg_test_855,What is the currency in Bulgaria?,1,0,0.246576
+questions,eg_test_890,How many streets are there in Moscow?,1,0,0.39096
+questions,eg_test_903,Who won the presidential election in 2018?,0,1,0.579743
+questions,eg_test_913,On what date does the month of Ramadan begin?,1,0,0.216049
+questions,eg_test_923,What is the subsistence minimum in Krasnodar Krai?,1,0,0.246715
+questions,eg_test_926,And how old is our planet?,0,1,0.811274
+questions,eg_test_936,What is the date of the Pavlov monetary reform?,0,1,0.672848
+questions,eg_test_951,Year of birth of Petr Paschenko.,0,1,0.564799
+questions,eg_test_952,How many inhabitants live in Cheboksary?,1,0,0.256321
+questions,eg_test_966,"Long time no see, Baste!",1,0,0.319496
+questions,eg_test_969,How old is Vera Vasilyeva?,0,1,0.841984
+questions,eg_test_1007,The longest wall in the world.,0,1,0.752877
+questions,eg_test_1028,"President of North Korea, name.",1,0,0.451606
+questions,eg_test_1032,The population of the city of Baku.,1,0,0.458622
+questions,eg_test_1037,Stierlitz's callsign.,0,1,0.644718
+questions,eg_test_1048,How many districts are there in Moscow?,1,0,0.473355
+questions,eg_test_1067,When did Amitabh Bachchan die?,1,0,0.04309
+questions,eg_test_1068,The population of the city of Bikin.,1,0,0.484815
+questions,eg_test_1078,How many billionaires were there in Russia in the year 2000?,0,1,0.680057
+questions,eg_test_1080,Who is the creator of VK?,0,1,0.64832
+questions,eg_test_1087,How many official languages are there in South Africa?,0,1,0.646762
+questions,eg_test_1089,How many days are there in May?,0,1,0.638254
+questions,eg_test_1106,"Please tell me, how many people have held the rank of Generalissimo?",0,1,0.971994
+questions,eg_test_1129,Who was the 40th president of the United States?,0,1,0.681171
+questions,eg_test_1130,How many heartbeats per minute does a hummingbird have?,0,1,0.663034
+questions,eg_test_1140,What is the largest number in mathematics?,0,1,0.644057
+questions,eg_test_1156,Population in Rostov.,1,0,0.20972
+questions,eg_test_1159,What position did Stalin hold?,0,1,0.694093
+questions,eg_test_1168,The largest tree in the world.,0,1,0.70279
+questions,eg_test_1169,Year of foundation of 'Mega Dybenko'.,0,1,0.509846
+questions,eg_test_1173,Winner of Eurovision 2017.,0,1,0.534238
+questions,eg_test_1179,What is the record for the longest hair in Russia?,0,1,0.702165
+questions,eg_test_1192,Since what year has the program 'Pole Chudes' been running?,0,1,0.759252
+questions,eg_test_1196,How old are Ani Lorak and Pletneva?,1,0,0.463075
+questions,eg_test_1197,The deepest metro.,1,0,0.375815
+questions,eg_test_1205,At what age did Mike Tyson become the world boxing champion?,0,1,0.723154
+questions,eg_test_1209,"Penza, time zone.",1,0,0.490585
+questions,eg_test_1230,What is the height of goalkeeper Thibaut Courtois?,0,1,0.788727
+questions,eg_test_1233,"Copper Riot, date.",0,1,0.514819
+questions,eg_test_1234,"Could you please tell me, which husband is Galkin for Alla Pugacheva?",0,1,0.823061
+questions,eg_test_1244,How old is Dzhigarkhanyan?,0,1,0.95697
+questions,eg_test_1249,And what is the currency in Poland?,1,0,0.424942
+questions,eg_test_1264,Who is the coach of the CSKA hockey club?,0,1,0.985455
+questions,eg_test_1267,"Leonid Arkadyevich Yakubovich, how old is he?",0,1,0.869044
+questions,eg_test_1268,What holiday is on May 9th?,0,1,0.593134
+statements,curated_test_033,The stock closed at 42 dollars on 3 January 2000.,0,1,0.913422
+statements,curated_test_036,The mayor served from 1988 to 1992.,0,1,0.508752
+statements,curated_test_080,The clinic accepts walk-in patients on Tuesdays.,1,0,0.37032
+statements,curated_test_094,The highest-grossing movie is Avatar.,1,0,0.490861
+statements,curated_test_097,The roads are closed following heavy snowfall.,1,0,0.380925
+paraphrase_diagnostic,paraphrase_004,A decline in the cost of gold is anticipated.,1,0,0.356203
+paraphrase_diagnostic,paraphrase_010,The device can be bought for $299.,1,0,0.44536
+paraphrase_diagnostic,paraphrase_016,Travellers must obtain a visa before entering this country.,1,0,0.412739
+paraphrase_diagnostic,paraphrase_021,Rainfall is anticipated over the city tomorrow.,1,0,0.49546
+paraphrase_diagnostic,paraphrase_033,A ticket sold for ten dollars back in 2012.,0,1,0.580295
+paraphrase_diagnostic,paraphrase_035,Buying a ticket required ten dollars in 2012.,0,1,0.666493
+paraphrase_diagnostic,paraphrase_040,The chief executive position was held by Maria Santos in 2004.,0,1,0.668778

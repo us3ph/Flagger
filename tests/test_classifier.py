@@ -45,6 +45,23 @@ def test_threshold_controls_decision_not_probability(classifier):
     assert low["label"] >= high["label"]
 
 
+@pytest.mark.parametrize("text,label", [
+    ("euro will go up", 1),
+    ("The euro will go up.", 1),
+    ("The euro will rise.", 1),
+    ("The dollar is going to go down.", 1),
+    ("The price of gold will rise.", 1),
+    ("The euro was introduced in 1999.", 0),
+    ("The euro went up in 2009.", 0),
+    ("Gold went down in 2013.", 0),
+    ("A triangle will always have three sides.", 0),
+    ("The Sun will rise tomorrow.", 0),
+])
+def test_forecasts_and_stable_temporal_contrasts(classifier, text, label):
+    # Reported cases and related checks are regressions, not accuracy evidence.
+    assert classifier.predict_claims([text])[0]["label"] == label
+
+
 def test_empty_batch_and_limits(classifier):
     assert classifier.predict_claims([]) == []
     with pytest.raises(ValueError, match="at most"):

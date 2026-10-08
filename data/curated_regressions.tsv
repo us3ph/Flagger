@@ -1,0 +1,65 @@
+label	group	text
+1	regression_fx_forecast	euro will go up
+1	regression_fx_forecast	The euro will go down.
+1	regression_fx_forecast	The dollar will rise.
+1	regression_fx_forecast	The pound will fall.
+1	regression_fx_forecast	The yen will strengthen.
+1	regression_fx_forecast	The dirham will weaken.
+1	regression_fx_forecast	The euro is going to rise against the dollar.
+1	regression_fx_forecast	The dollar is expected to fall against the yen.
+1	regression_fx_forecast	The pound may go up next month.
+1	regression_fx_forecast	The exchange rate could go down.
+1	regression_fx_forecast	The euro might recover soon.
+1	regression_fx_forecast	The dollar is predicted to lose value.
+0	regression_fx_history	The euro rose against the dollar in 2009.
+0	regression_fx_history	The pound fell against the dollar in 2016.
+0	regression_fx_history	The yen went up in 2010.
+0	regression_fx_history	The dollar went down in 2003.
+0	regression_fx_history	In 2015, analysts predicted that the euro would fall.
+0	regression_fx_history	The euro's value increased during 2002.
+0	regression_fx_definition	Currency appreciation means an increase in a currency's value.
+0	regression_fx_definition	Currency depreciation means a decrease in a currency's value.
+0	regression_fx_definition	An exchange rate compares the values of two currencies.
+0	regression_fx_definition	A forecast is a prediction about a future event.
+0	regression_fx_definition	A rising exchange rate means one currency buys more of another.
+0	regression_fx_definition	Currencies can gain or lose value.
+1	regression_market_forecast	Bitcoin will go up.
+1	regression_market_forecast	Gold will go down.
+1	regression_market_forecast	Oil prices will rise.
+1	regression_market_forecast	Share prices will fall.
+1	regression_market_forecast	Mortgage rates will increase.
+1	regression_market_forecast	Interest rates will decrease.
+1	regression_market_forecast	Rent is going to go up.
+1	regression_market_forecast	The price of petrol may fall.
+1	regression_market_forecast	Food prices are expected to rise.
+1	regression_market_forecast	The stock market could recover.
+1	regression_market_forecast	Inflation might slow next year.
+1	regression_market_forecast	Electricity prices are forecast to increase.
+0	regression_market_history	Oil prices rose in 2008.
+0	regression_market_history	Gold prices fell in 2013.
+0	regression_market_history	Bitcoin went up in 2017.
+0	regression_market_history	Share prices went down in 2008.
+0	regression_market_history	The bank lowered interest rates in 2012.
+0	regression_market_history	In 2010, the forecast said food prices would rise.
+0	regression_market_definition	Interest is the cost of borrowing money.
+0	regression_market_definition	Inflation describes a rise in the general price level.
+0	regression_market_definition	A share represents ownership in a company.
+0	regression_market_definition	A price increase means a product costs more than before.
+0	regression_market_definition	Prices can go up or down.
+0	regression_market_definition	Financial forecasts can be incorrect.
+1	regression_future_plan	The shop will open next week.
+1	regression_future_plan	The train will arrive at six.
+1	regression_future_plan	The flight is expected to land at noon.
+1	regression_future_plan	The team will win tomorrow.
+1	regression_future_plan	It will rain tonight.
+1	regression_future_plan	The temperature will go up tomorrow.
+1	regression_future_plan	The admission fee will increase.
+1	regression_future_plan	The next software release will arrive in June.
+0	regression_enduring_future	A triangle will always have three sides.
+0	regression_enduring_future	Two plus two will always equal four.
+0	regression_enduring_future	The Sun will rise tomorrow.
+0	regression_enduring_future	Water will freeze when cooled below its freezing point.
+0	regression_enduring_future	Ice will melt when heated above its melting point.
+0	regression_enduring_future	A ball thrown up will fall under gravity.
+0	regression_enduring_future	A square will always have four equal sides.
+0	regression_enduring_future	An object will accelerate when a net force acts on it.
